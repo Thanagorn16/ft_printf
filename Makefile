@@ -12,7 +12,7 @@
 
 FLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
-SRCS = ft_printf.c print_strs.c
+SRCS = ft_printf.c print_strs.c print_nums.c
 
 OBJS = $(SRCS:.c=.o)
 

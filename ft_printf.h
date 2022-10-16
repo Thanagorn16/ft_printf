@@ -21,6 +21,9 @@
 int	ft_printf(const char *format, ...);
 int	ft_putchar(int c);
 int	ft_print_char(va_list vlst);
-
+int	ft_putstr(char *s);
+int	ft_print_str(va_list vlst);
+int	ft_putnbr(int n);
+int	ft_print_nbr(va_list vlst);
 
 #endif
