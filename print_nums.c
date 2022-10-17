@@ -12,19 +12,20 @@
 
 #include "ft_printf.h"
 
-int	make_nbr(int n)
+int	ft_putnbr(long long n)
 {
-	int		i;
 	int		ret;
+	int		i;
 	char	str[12];
 
 	ret = 0;
 	i = 0;
+	if (n == 0)
+		return (ft_putchar('0'));
 	if (n < 0)
 	{
-		ft_putchar('-');
+		ret = ft_putchar('-');
 		n = -n;
-		ret = 1;
 	}
 	while (n > 0)
 	{
@@ -38,23 +39,17 @@ int	make_nbr(int n)
 	return (ret);
 }
 
-int	ft_putnbr(int n)
-{
-	int	ret;
-
-	ret = 0;
-	if (n == 0)
-		return (ft_putchar('0'));
-	if (n == -2147483648)
-		return (ft_putstr("-2147483648"));
-	else
-		ret = make_nbr(n);
-	return (ret);
-}
-
 int	ft_print_nbr(va_list vlst)
 {
-	int	c;
+	long long	c;
+
+	c = va_arg(vlst, int);
+	return (ft_putnbr(c));
+}
+
+int	ft_print_unint(va_list vlst)
+{
+	unsigned int	c;
 
 	c = va_arg(vlst, int);
 	return (ft_putnbr(c));
