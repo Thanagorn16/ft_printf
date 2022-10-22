@@ -35,15 +35,11 @@ int	make_char(unsigned long long n, int ret, int alpha_pos)
 	return (ret);
 }
 
-int	ft_puthex(unsigned long long n, char spec)
+int	ft_puthex(unsigned long long n, char spec, char flag)
 {
-	int	remain_num;
-	int	i;
 	int	ret;
 	int	alpha_pos;
 
-	remain_num = 0;
-	i = 0;
 	alpha_pos = 0;
 	if (spec == 'x' || spec == 'p')
 		alpha_pos = 32;
@@ -53,11 +49,18 @@ int	ft_puthex(unsigned long long n, char spec)
 			ret += ft_putstr("0x");
 	if (n == 0)
 		return (ret += ft_putchar('0'));
+	if (flag && spec != 'p')
+	{
+		if (spec == 'X')
+			ret += ft_putstr("0X");
+		else
+			ret += ft_putstr("0x");
+	}
 	ret = make_char(n, ret, alpha_pos);
 	return (ret);
 }
 
-int	ft_print_hex(va_list vlst, char spec)
+int	ft_print_hex(va_list vlst, char spec, char flag)
 {
 	long long	n;
 
@@ -65,6 +68,6 @@ int	ft_print_hex(va_list vlst, char spec)
 		n = va_arg(vlst, long long);
 	else
 		n = va_arg(vlst, unsigned int);
-	return (ft_puthex(n, spec));
+	return (ft_puthex(n, spec, flag));
 }
 

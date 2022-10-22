@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_putnbr(long long n)
+int	ft_putnbr(long long n, char flag)
 {
 	int		ret;
 	int		i;
@@ -20,8 +20,10 @@ int	ft_putnbr(long long n)
 
 	ret = 0;
 	i = 0;
+	if (flag && n >= 0)
+		ret += ft_putchar('+');
 	if (n == 0)
-		return (ft_putchar('0'));
+		return (ret += ft_putchar('0'));
 	if (n < 0)
 	{
 		ret = ft_putchar('-');
@@ -39,18 +41,18 @@ int	ft_putnbr(long long n)
 	return (ret);
 }
 
-int	ft_print_nbr(va_list vlst)
+int	ft_print_nbr(va_list vlst, char flag)
 {
 	long long	c;
 
 	c = va_arg(vlst, int);
-	return (ft_putnbr(c));
+	return (ft_putnbr(c, flag));
 }
 
-int	ft_print_unint(va_list vlst)
+int	ft_print_unint(va_list vlst, char flag)
 {
 	unsigned int	c;
 
 	c = va_arg(vlst, int);
-	return (ft_putnbr(c));
+	return (ft_putnbr(c, flag));
 }

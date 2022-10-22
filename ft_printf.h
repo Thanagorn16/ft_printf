@@ -25,11 +25,12 @@ int	ft_putchar(int c);
 int	ft_print_char(va_list vlst);
 int	ft_putstr(char *s);
 int	ft_print_str(va_list vlst);
-int	ft_putnbr(long long n);
-int	ft_print_nbr(va_list vlst);
-int	ft_print_unint(va_list vlst);
+int	ft_putnbr(long long n, char flag);
+int	ft_print_nbr(va_list vlst, char flag);
+int	ft_print_unint(va_list vlst, char flag);
 int	make_char(unsigned long long n, int ret, int alpha_pos);
-int	ft_puthex(unsigned long long n, char spec);
-int	ft_print_hex(va_list vlst, char spec);
+int	ft_puthex(unsigned long long n, char spec, char flag);
+int	ft_print_hex(va_list vlst, char spec, char flag);
+char	check_flag(char flag);
 
 #endif
