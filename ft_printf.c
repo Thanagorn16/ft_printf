@@ -39,7 +39,11 @@ char	check_flag(char flag)
 	char	save_flag;
 
 	save_flag = 0;
-	if (flag == '#' || flag == '+')
+	if (flag == '#')
+		save_flag = flag;
+	else if (flag == '+')
+		save_flag = flag;
+	else if (flag == ' ')
 		save_flag = flag;
 	return (save_flag);
 }
@@ -50,34 +54,57 @@ int	ft_printf(const char *format, ...)
 	int	i;
 	int	ret;
 	int	save;
-	size_t	len;
 	char	flag;
 
 	i = 0;
-	len = 1;
 	ret = 0;
 	va_start(ptr, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
-			flag = check_flag(format[i + 1]);
-			if (flag != 0)
+			i++;
+			while (format[i] == '#' || format[i] == '+' || format[i] == ' ')
+			{
+				flag = check_flag(format[i]);
 				i++;
+			}
+			if (flag == ' ')
+			{
+				while (format[i] != 's' && format[i] != 'd' && format[i] != 'i')
+				{
+					i++;
+					ret += ft_putchar(' ');
+				}
+			}
+			// flag = check_flag(format[i + 1]);
+			// if (flag != 0)
+			// {
+			// 	i++;
+			// 	// while (format[i + 1] == flag)
+			// 	// 	i++;
+			// 	// if (flag == ' ' && format[i + 1] == '+')
+			// 	// {
+			// 	// 	flag = format[i + 1];
+			// 	// 	i++;
+			// 	// }
+			// }
 			save = ret;
-			ret = check_specifier(ptr, format[i + 1], save, flag);
-			if (format[i + 1] == '%')
+			// printf("ret:%d\n", ret);
+			ret = check_specifier(ptr, format[i], save, flag);
+			if (format[i] == '%')
 			{
 				ft_putchar(format[i]);
 				if (format[i] != '%' && format[i] != '\0')
 					ft_putchar(format[i]);
 			}
-			i++;
+			// i++;
 		}
 		else
 			ft_putchar(format[i]);
 		i++;
 		ret++;
+		// printf("ret:%d\n", ret);
 	}
 	va_end(ptr);
 	return (ret);
@@ -93,21 +120,12 @@ int	ft_printf(const char *format, ...)
 // 	int	a;
 // 	// printf("%d\n", a);
 // 	// printf("%x\n", e);
-// 	e = printf(" %+d", -1);
+// 	e = printf("%x", 10);
 // 	printf("\nhere:%d\n", e);
 // 	puts("------------");
-// 	f = ft_printf(" %+d", -1);
+// 	f = ft_printf("%x", 10);
 // 	printf("\nhere:%d\n", f);
-// 	// printf("%x\n", f);
-// 	// printf("%#x\n", f);
-// 	// printf("%X\n", f);
-// 	// printf("%#X\n", f);
-
-// 	// puts("-------------");
-
-// 	// printf("%x  %#x\n", e, f);
-
-// 	// puts("-------------");
+// 	// printf("\nhere:%d\n", f);
 
 // 	// ft_printf("%x\n", e);
 // 	// f = ft_printf(" %#x ", f);

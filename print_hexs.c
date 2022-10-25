@@ -49,6 +49,7 @@ int	ft_puthex(unsigned long long n, char spec, char flag)
 			ret += ft_putstr("0x");
 	if (n == 0)
 		return (ret += ft_putchar('0'));
+	// if (flag == '#' && spec != 'p')
 	if (flag && spec != 'p')
 	{
 		if (spec == 'X')

@@ -20,8 +20,13 @@ int	ft_putnbr(long long n, char flag)
 
 	ret = 0;
 	i = 0;
-	if (flag && n >= 0)
+	if (flag == '+' && n >= 0)
 		ret += ft_putchar('+');
+	if (flag == ' ' && n >= 0)
+		ret += ft_putchar(' ');
+	// ft_putchar('a');
+	// if (flag == '+' && n >= 0)
+	// 	ret += ft_putchar('+');
 	if (n == 0)
 		return (ret += ft_putchar('0'));
 	if (n < 0)

@@ -32,5 +32,7 @@ int	make_char(unsigned long long n, int ret, int alpha_pos);
 int	ft_puthex(unsigned long long n, char spec, char flag);
 int	ft_print_hex(va_list vlst, char spec, char flag);
 char	check_flag(char flag);
+// char	check_flag(char flag, const char *format);
+// int	check_flag(const char *format);
 
 #endif
