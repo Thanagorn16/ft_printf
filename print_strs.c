@@ -19,7 +19,7 @@ int	ft_putchar(int c)
 
 int	ft_putstr(char *s)
 {
-	int	i;
+	int		i;
 	char	*null;
 
 	null = "(null)";
@@ -44,7 +44,7 @@ int	ft_print_char(va_list vlst)
 
 int	ft_print_str(va_list vlst)
 {
-	int	i;
+	int		i;
 	char	*c;
 
 	i = 0;

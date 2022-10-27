@@ -6,7 +6,7 @@
 #    By: truangsi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/15 12:31:53 by truangsi          #+#    #+#              #
-#    Updated: 2022/10/15 12:33:38 by truangsi         ###   ########.fr        #
+#    Updated: 2022/10/25 18:09:42 by truangsi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,4 +32,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean fclean all re bonus
+.PHONY: clean fclean re all bonus

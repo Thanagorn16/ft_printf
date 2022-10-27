@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+int	check_num_flag(char flag, int ret, long long n)
+{
+	if (flag == '+' && n >= 0)
+		ret += ft_putchar('+');
+	if (flag == ' ' && n >= 0)
+		ret += ft_putchar(' ');
+	return (ret);
+}
+
 int	ft_putnbr(long long n, char flag)
 {
 	int		ret;
@@ -20,13 +29,7 @@ int	ft_putnbr(long long n, char flag)
 
 	ret = 0;
 	i = 0;
-	if (flag == '+' && n >= 0)
-		ret += ft_putchar('+');
-	if (flag == ' ' && n >= 0)
-		ret += ft_putchar(' ');
-	// ft_putchar('a');
-	// if (flag == '+' && n >= 0)
-	// 	ret += ft_putchar('+');
+	ret += check_num_flag(flag, ret, n);
 	if (n == 0)
 		return (ret += ft_putchar('0'));
 	if (n < 0)
