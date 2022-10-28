@@ -24,6 +24,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 
+bonus: all
+
 clean:
 	rm -f $(OBJS)
 

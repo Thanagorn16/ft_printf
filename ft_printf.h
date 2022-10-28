@@ -13,12 +13,9 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>
-# include <string.h>
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <limits.h>
 
 int		ft_printf(const char *format, ...);
 int		ft_putchar(int c);
@@ -32,7 +29,5 @@ int		make_char(unsigned long long n, int ret, int alpha_pos);
 int		ft_puthex(unsigned long long n, char spec, char flag);
 int		ft_print_hex(va_list vlst, char spec, char flag);
 char	check_flag(char flag);
-// char	check_flag(char flag, const char *format);
-// int	check_flag(const char *format);
 
 #endif

@@ -12,11 +12,8 @@
 
 #include "ft_printf.h"
 
-int	check_specifier(va_list vlst, char spec, int save, char flag)
+int	check_specifier(va_list vlst, char spec, int ret, char flag)
 {
-	int	ret;
-
-	ret = save;
 	if (spec == 'c')
 		ret += ft_print_char(vlst);
 	if (spec == 's')
@@ -68,10 +65,8 @@ char	make_flag(const char *format, int *i, char flag)
 int	ft_process(int *i, const char *format, va_list ptr, int ret)
 {
 	char	flag;
-	int		save;
 
 	flag = 0;
-	save = 0;
 	flag = make_flag(format, i, flag);
 	if (flag == ' ')
 	{
@@ -81,14 +76,9 @@ int	ft_process(int *i, const char *format, va_list ptr, int ret)
 			ret += ft_putchar(' ');
 		}
 	}
-	save = ret;
-	ret = check_specifier(ptr, format[*i], save, flag);
+	ret = check_specifier(ptr, format[*i], ret, flag);
 	if (format[*i] == '%')
-	{
 		ft_putchar(format[*i]);
-		if (format[*i] != '%' && format[*i] != '\0')
-			ft_putchar(format[*i]);
-	}
 	return (ret);
 }
 
@@ -124,20 +114,17 @@ int	ft_printf(const char *format, ...)
 // 	int	a;
 // 	// printf("%d\n", a);
 // 	// printf("%x\n", e);
-// 	e = printf("%    ++++d", e);
+// 	e = printf("%u", -e);
 // 	printf("\nhere:%d\n", e);
 // 	puts("------------");
-// 	f = ft_printf("%    ++++d", f);
+// 	f = ft_printf("%u", -f);
 // 	printf("\nhere:%d\n", f);
+// 	// e = printf("%    ++++d", e);
+// 	// printf("\nhere:%d\n", e);
+// 	// puts("------------");
+// 	// f = ft_printf("%    ++++d", f);
+// 	// printf("\nhere:%d\n", f);
 // 	// f = ft_printf(" %x", 3);
 // 	// printf("\nhere:%d\n", f);
 // 	// printf("\nhere:%d\n", f);
-
-// 	// ft_printf("%x\n", e);
-// 	// f = ft_printf(" %#x ", f);
-// 	// printf("\nhere:%d\n", f);
-// 	// e = printf(" %%%% |");
-// 	// e = printf("\n%d\n", e);
-// 	// f = ft_printf(" %%%% |");
-// 	// f = printf("\n%d\n", f);
 // }

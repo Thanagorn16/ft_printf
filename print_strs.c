@@ -20,13 +20,10 @@ int	ft_putchar(int c)
 int	ft_putstr(char *s)
 {
 	int		i;
-	char	*null;
-
-	null = "(null)";
 	if (!s)
 	{
 		write(1, "(null)", 6);
-		return (strlen(null));
+		return (6);
 	}
 	i = 0;
 	while (s[i])
@@ -44,10 +41,8 @@ int	ft_print_char(va_list vlst)
 
 int	ft_print_str(va_list vlst)
 {
-	int		i;
 	char	*c;
 
-	i = 0;
 	c = va_arg(vlst, char *);
 	return (ft_putstr(c));
 }
