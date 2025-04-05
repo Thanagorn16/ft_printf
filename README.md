@@ -48,3 +48,30 @@ cd ft_printf
 
 # Build the library
 make
+```
+---
+## 📁 File Structure & Descriptions
+Each file in this repository serves a specific purpose in the implementation of `ft_printf`:
+
+* `ft_printf.c` – Contains the main ft_printf function, handling the parsing of format strings and coordinating the printing process.
+
+* `ft_printf.h` – The main header file containing function prototypes, macro definitions, and necessary includes.
+
+* `print_hexs.c` – Handles the formatting and printing of hexadecimal numbers.
+
+* `print_nums.c` – Manages the formatting and printing of numeric values, including integers and unsigned numbers.
+
+* `print_strs.c` – Deals with the formatting and printing of string and character data.
+
+* `Makefile` – Automates the compilation and cleaning processes for the project.
+
+---
+
+# 📚 Function Overview Table
+
+|Function|	Description|
+|-------|---------------|
+|ft_printf|	The main function that mimics the behavior of the standard printf.|
+|print_hex|	Formats and prints hexadecimal numbers.|
+|print_num|	Formats and prints numeric values, including integers and unsigned numbers.|
+|print_str|	Formats and prints strings and characters.|
