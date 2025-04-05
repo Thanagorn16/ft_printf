@@ -66,12 +66,3 @@ Each file in this repository serves a specific purpose in the implementation of 
 * `Makefile` – Automates the compilation and cleaning processes for the project.
 
 ---
-
-# 📚 Function Overview Table
-
-|Function|	Description|
-|-------|---------------|
-|ft_printf|	The main function that mimics the behavior of the standard printf.|
-|print_hex|	Formats and prints hexadecimal numbers.|
-|print_num|	Formats and prints numeric values, including integers and unsigned numbers.|
-|print_str|	Formats and prints strings and characters.|
